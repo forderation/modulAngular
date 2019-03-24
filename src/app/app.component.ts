@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'modul2';
+  title = 'Kharisma Muzaki Ghufron';
+  panjang : Number = 10;
+  lebar : Number = 10;
+  isBreakTime : Boolean = true;
+
+  handleBlur(event: any){
+    console.log(event.target.value);
+  }
 }
