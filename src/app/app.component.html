@@ -1,3 +1,62 @@
-<h1>{{title}}</h1>
+<!--<h1>{{title}}</h1>
 <h2>luas = {{panjang}} x {{lebar}} | {{panjang * lebar}}</h2>
 <h2>{{isBreakTime ? ":)" : ":("}}</h2>
+-->
+<!--
+  <h1>Event Binding</h1>
+<input type="text" (input)="handleInput($event)"/>
+<button (click)="handleClick($event)">reset</button>
+<h2>{{title}}</h2>  
+-->
+<!--
+  <h1>Event Binding</h1>
+<input type="text" #nama (input)="handleChange(nama.value)">
+<h2>{{title}}</h2>
+<div *ngIf="title.length>=4">
+  Loading search result for ... : {{title}}
+</div>
+<ng-template [ngIf]="title.length>=4">
+  <div>Loading search result for ... : {{title}}</div>
+</ng-template>
+<ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut">
+</ng-container>
+
+<ng-template #loggedIn>
+  <div>
+  Welcome back, {{title}}.
+  </div>
+</ng-template>
+
+
+<ng-template #loggedOut>
+  <div>
+    Belum login Bosque
+  </div>
+</ng-template>
+-->
+
+<!--
+  <h1>Perulangan Ng For</h1>
+<h2>Todo list</h2>
+<ul *ngFor="let item of todos; let i = index">
+ <ng-container *ngIf="i%2==0">
+    <li>{{i}} : {{item.todo}}</li>
+ </ng-container>
+</ul>
+-->
+
+<h1>Perulangan Ng For</h1>
+
+<h2>Todo List</h2>
+<ul *ngFor="let item of todos; let i = index">
+  <li 
+  [ngClass]="{done:item.status}"
+  class="done">{{i}} : {{item.todo}} | {{item.createdAt | date: "dd/MM/yy"}}</li>
+</ul>
+
+<h2>Todo List</h2>
+<ul *ngFor="let item of todos; let i = index">
+  <li [ngStyle]="{textDecoration :item.status? 'line-through' : 'none'}">
+    {{i}} : {{item.todo}}
+  </li>
+</ul>
